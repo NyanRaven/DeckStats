@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Card" syncable="YES">
+        <attribute name="atk" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="def" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="hero" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="kind" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rarity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DecksDB" syncable="YES">
+        <attribute name="cards" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdStat" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="deckClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deckID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="down" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatsDB" inverseName="newRelationship" inverseEntity="StatsDB" syncable="YES"/>
+    </entity>
+    <entity name="StatsDB" syncable="YES">
+        <attribute name="classID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deckID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="deckName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="losses" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wins" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DecksDB" inverseName="stat" inverseEntity="DecksDB" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Card" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="DecksDB" positionX="-441" positionY="54" width="128" height="148"/>
+        <element name="StatsDB" positionX="-234" positionY="179" width="135" height="133"/>
+    </elements>
 </model>
